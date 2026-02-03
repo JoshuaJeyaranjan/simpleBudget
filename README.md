@@ -1,53 +1,65 @@
-# React + TypeScript + Vite
+simpleBudget
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite
 
-Currently, two official plugins are available:
+This project is a personal learning-in-public experiment where I’m exploring TypeScript while building a simple budget app. The goal is to progressively learn and document TypeScript concepts, update the site iteratively, and share insights in LinkedIn articles about what I’ve learned along the way.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This template uses React with Vite, providing a minimal setup with HMR and some ESLint rules to help enforce good practices.
 
-## React Compiler
+Official Vite Plugins
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Currently, two official React plugins are available:
 
-Note: This will impact Vite dev & build performances.
+@vitejs/plugin-react
+ – uses Babel
+ (or oxc
+ with rolldown-vite
+) for Fast Refresh.
 
-## Expanding the ESLint configuration
+@vitejs/plugin-react-swc
+ – uses SWC
+ for Fast Refresh.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+React Compiler
 
-```js
+This template enables the React Compiler.
+See React Compiler docs
+ for more information.
+
+Note: Enabling the React Compiler can impact Vite dev & build performance.
+
+ESLint Configuration
+
+For production-grade TypeScript apps, consider enabling type-aware lint rules:
+
 export default defineConfig([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
+      tseslint.configs.recommendedTypeChecked,  // recommended type-checked rules
+      // Or stricter rules:
       tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
+      // Optionally, stylistic rules:
       tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
     ],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Optional React-specific ESLint Plugins
 
-```js
+You can also install:
+
+eslint-plugin-react-x
+
+eslint-plugin-react-dom
+
 // eslint.config.js
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
@@ -57,10 +69,7 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-      // Enable lint rules for React
       reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
@@ -68,9 +77,14 @@ export default defineConfig([
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
-```
-# simpleBudget
+
+Project Vision
+
+Learning in public: Each update to the project will document what I’ve learned about TypeScript, React, and app state management.
+
+Progressive updates: I will continuously improve the app, refactor types, and introduce patterns like normalization, discriminated unions, derived state, and more.
+
+Content creation: Insights will be shared in LinkedIn articles to demonstrate how TypeScript concepts are applied in real projects.
