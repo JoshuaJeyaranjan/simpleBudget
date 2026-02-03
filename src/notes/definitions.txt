@@ -1,0 +1,74 @@
+
+DATA MODELING TYPES 
+
+Type = a constraint on what values are allowed 
+    -runs at compile time 
+    -should not change 
+
+    type Expense = number;
+
+Interface = a constraint on how objects should be shaped 
+    -this is more flexible
+    - meant to be extended 
+
+! use types for data constraints/logic 
+! object meant to grow use interface  
+
+Union Type = a type that can be one of several values 
+
+    type Status = "idle" | "loading" | "error";
+
+Discriminated Union = A union of object types that share a common literal property (the discriminant)
+
+    type Result =
+    | { status: "success"; data: string }
+    | { status: "error"; message: string };
+
+
+Type Narrowing = process of reducing a union type to be more specific
+
+    if (object.status === "error") {
+    object.fallback; // TS knows exactly what this is
+}
+
+Type Guard = a function that narrows a type 
+
+Exhaustive Check = process that ensures all cases of a union are handled 
+
+    function assertNever(x: never): never {
+    throw new Error("Unhandled case");
+    }
+
+Literal Type = a type that allows exact values  
+
+    type Direction = "up" | "down";
+
+Intersection Type = a type that combines multiple types into one 
+    - can fail if types conflict 
+
+Generics (type) = a type that takes other types as parameters 
+
+Optional Property = a property that may or may not exist
+
+
+Never = create a value that should never exist or a code path that can't happen; throw an error if it does 
+
+Illegal state = a combination of values that should never be possible 
+
+Readonly = when a value is meant to be read only, avoids unwanted mutation
+
+
+Unknown = better alternative to any; used when we don't know what type data we are going to be dealing with 
+
+Any = a fallback that should not be used; completely bypasses type safety 
+
+Non null assertion = when you tell typescript trust me bro this is not null; should not be used often 
+
+
+Type Inference = when typescript assumes what constraints you want to apply 
+
+Structural Typing = Typescript does not care about what something is named, it cares about how its shaped 
+
+
+Derived State = data that can be calculated from other data 
+
