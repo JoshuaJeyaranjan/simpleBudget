@@ -3,6 +3,7 @@ import type { Entry } from "../types";
 import { Balance } from "../components/Balance";
 import { EntryList } from "../components/EntryList";
 import { EntryForm } from "../components/EntryForm";
+
 interface HomePageProps {
   title: string;
   entries: Entry[];
@@ -13,8 +14,8 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({
   title,
-  entries = [],
-  balance = 0,
+  entries,
+  balance,
   addEntry,
   deleteEntry,
 }) => {

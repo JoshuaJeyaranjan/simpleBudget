@@ -4,18 +4,18 @@ import { useState, useMemo } from 'react'
 import HomePage from './pages/HomePage'
 import type { AppState, Entry } from './types'
 
-function App() {
-  
-  const [state, setState] = useState<AppState>({
+function App() {  
+
+const [state, setState] = useState<AppState>({
     entriesById: {},
     entryIds: [],
-  })
+})
 
-  const entries: Entry[] = useMemo(() => {
+const entries: Entry[] = useMemo(() => {
     return state.entryIds.map(id => state.entriesById[id])
-  }, [state.entryIds, state.entriesById])
+}, [state.entryIds, state.entriesById])
 
-  const balance = useMemo(() => {
+const balance = useMemo(() => {
     return entries.reduce((total, entry) => {
       if (entry.kind === 'income') {
         return total + entry.amount
@@ -23,9 +23,10 @@ function App() {
 
       return total - entry.amount
     }, 0)
-  }, [entries])
+}, [entries])
 
-  const addEntry = (entry: Entry) => {
+
+const addEntry = (entry: Entry) => {
     setState(prev => ({
       entriesById: {
         ...prev.entriesById,
@@ -33,7 +34,7 @@ function App() {
       },
       entryIds: [...prev.entryIds, entry.id],
     }))
-  }
+}
 
 const deleteEntry = (id: string) => {
   setState((prev) => {

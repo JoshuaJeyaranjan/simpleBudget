@@ -8,7 +8,7 @@ interface EntryListProps {
 }
 
 export const EntryList: React.FC<EntryListProps> = ({ entries, deleteEntry }) => {
-  if (!entries || entries.length === 0) {
+  if (entries.length === 0) {
     return <p className="text-gray-500 mt-4 text-center">No entries yet.</p>;
   }
 

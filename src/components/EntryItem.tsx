@@ -8,9 +8,10 @@ interface EntryItemProps {
 }
 
 export const EntryItem: React.FC<EntryItemProps> = ({ entry, deleteEntry }) => {
-  const isIncome = entry.kind === "income";
-
-  return (
+  
+const isIncome = entry.kind === "income";
+  
+return (
     <li
       className={clsx(
         "flex justify-between items-center p-4 rounded-lg mb-2 shadow-sm",

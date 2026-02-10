@@ -12,14 +12,12 @@ export const Balance: React.FC<BalanceProps> = ({ balance }) => {
       </h2>
       <p
         className={`mt-2 text-3xl font-bold ${
-          balance !== undefined && balance < 0
+           balance < 0
             ? "text-red-500"
             : "text-green-500"
         }`}
       >
-        {balance !== undefined
-          ? `$${balance.toFixed(2)}`
-          : "No balance available"}
+        ${balance.toFixed(2)}
       </p>
     </div>
   );
